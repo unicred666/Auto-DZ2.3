@@ -1,33 +1,41 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema", // версия схемы: https://json-schema.org/understanding-json-schema/reference/schema.html
-  "type": "array", // тип корневого элемента: https://json-schema.org/understanding-json-schema/reference/type.html
-  "items": { // какие элементы допустимы внутри массива: https://json-schema.org/understanding-json-schema/reference/array.html#items
-    "type": "object", // должны быть объектами: https://json-schema.org/understanding-json-schema/reference/object.html
-    "required": [ // должны содержать следующие поля: https://json-schema.org/understanding-json-schema/reference/object.html#required-properties
-      "id",
-      "name",
-      "number",
-      "balance",
-      "currency"
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "default": [],
+  "items": {
+    "type": "object",
+    "additionalItems": false,
+    "required": [
+      "args",
+      "data",
+      "files",
+      "form",
+      "headers",
+      "json",
+      "url"
     ],
-    "additionalProperties": false, // дополнительных полей быть не должно
-    "properties": { // описание полей: https://json-schema.org/understanding-json-schema/reference/object.html#properties
-      "id": {
-        "type": "integer" // целое число: https://json-schema.org/understanding-json-schema/reference/numeric.html#integer
+    "additionalProperties": false,
+    "properties": {
+      "args": {
+        "type": "object"
       },
-      "name": {
-        "type": "string", // строка: https://json-schema.org/understanding-json-schema/reference/string.html
-        "minLength": 1 // минимальная длина — 1: https://json-schema.org/understanding-json-schema/reference/string.html#length
+      "data": {
+        "type": "string",
+        "pattern": "^Data$"
       },
-      "number": {
-        "type": "string", // строка: https://json-schema.org/understanding-json-schema/reference/string.html
-        "pattern": "^•• \\d{4}$" // соответствует регулярному выражению: https://json-schema.org/understanding-json-schema/reference/string.html#regular-expressions
+      "files": {
+        "type": "object"
       },
-      "balance": {
-        "type": "integer" // целое число: https://json-schema.org/understanding-json-schema/reference/numeric.html#integer
+      "form": {
+        "type": "object"
       },
-      "currency": {
-        "type": "string" // строка: https://json-schema.org/understanding-json-schema/reference/string.html
+      "headers": {
+        "type": "object"
+      },
+      "json": {
+        "type": "null"
+      },
+      "url": {
+        "type": "string"
       }
     }
   }
